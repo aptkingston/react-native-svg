@@ -228,7 +228,9 @@ class ImageShadowNode extends RenderableShadowNode {
         Path path = getPath(canvas, paint);
         if (clipPath != null) {
             // clip by the common area of clipPath and mPath
-            clip.setFillType(Path.FillType.INVERSE_EVEN_ODD);
+            if (clip != null) {
+                clip.setFillType(Path.FillType.INVERSE_EVEN_ODD);
+            }
 
             Path inverseWindingPath = new Path();
             inverseWindingPath.setFillType(Path.FillType.INVERSE_WINDING);

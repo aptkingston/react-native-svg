@@ -240,7 +240,9 @@ abstract class VirtualNode extends LayoutShadowNode {
                 Path clipPath = node.getPath(canvas, paint);
                 switch (mClipRule) {
                     case CLIP_RULE_EVENODD:
-                        clipPath.setFillType(Path.FillType.EVEN_ODD);
+                        if (clipPath != null) {
+                            clipPath.setFillType(Path.FillType.EVEN_ODD);
+                        }
                         break;
                     case CLIP_RULE_NONZERO:
                         break;
